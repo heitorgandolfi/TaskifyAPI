@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using TaskifyAPI.Data.Map;
 using TaskifyAPI.Models;
 
 namespace TaskifyAPI.Data
@@ -14,6 +15,9 @@ namespace TaskifyAPI.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new UserMap());
+            modelBuilder.ApplyConfiguration(new TaskMap());
+
             base.OnModelCreating(modelBuilder);
         }
     }
